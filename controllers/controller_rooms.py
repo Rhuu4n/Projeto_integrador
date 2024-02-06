@@ -1,8 +1,5 @@
 from flask import Flask, request, jsonify
 
-
-
-
 rooms = [
     {
         "room_id":555,
@@ -13,8 +10,6 @@ rooms = [
         "player_4_id": 4
     }
 ]
-
-
 
 def create_room():
     new_room = request.get_json()
@@ -32,4 +27,4 @@ def create_room():
 
     
 def get_rooms ():
-    return (rooms)
+    return jsonify(rooms)

@@ -43,8 +43,9 @@ def del_users(id):
                del users[i]
                return jsonify(users)
 
-def get_player(player_id):
-    if player in players:
-        return jsonify(player[player_id])
-    else:
-        return jsonify({'erro': 'Jogador não encontrado'}), 404
+def get_user(user_id):
+    for user in users:
+        if user['id'] == user_id:
+            return jsonify(user)
+        
+    return jsonify({"error" : "Usuário não encontrado"}), 404
