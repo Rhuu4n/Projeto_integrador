@@ -1,5 +1,7 @@
 from flask import Flask, request, jsonify
 from controllers.controllers_users import get_users, set_users, del_users
+from controllers.controllets_partida import set_matches
+
 app = Flask(__name__)
 
 # Create, Read e Delete do objeto users
