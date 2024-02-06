@@ -63,3 +63,16 @@ def set_matches(): #function
   
     matches.append(new_matche)
     return jsonify(matches)
+
+def get_matches():
+    return jsonify (matches)
+
+def put_matches(id):
+     Update_match = request.get_json()
+
+     for i, match in enumerate(matches):
+        if id == match["matche_id"]:
+             matches[i].update(Update_match)
+             return jsonify(matches)
+            
+        return jsonify({"erro":"partida nao encontrado"})
