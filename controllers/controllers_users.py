@@ -1,8 +1,5 @@
 from flask import Flask, request, jsonify
 
-
-app = Flask(__name__)
-
 users = [
      {
           "id":1,
@@ -10,11 +7,17 @@ users = [
           "senha":"123",
           "e-mail":"rhuan123@rhuan123.com",
           "nascimento":"28/03/2003"
+     },
+     {
+          "id":2,
+          "usuario":"Hugo",
+          "senha":"123",
+          "e-mail":"rhuan123@rhuan123.com",
+          "nascimento":"28/03/2003"
      }
 ]
 
-@app.route("/users", methods = ["POST"])
-def crt_aluno():
+def set_users():
     New_user = request.get_json()
 
     for u in users:
@@ -30,4 +33,12 @@ def crt_aluno():
     users.append(New_user)
     return jsonify(users)
 
-app.run(debug=True)
+def get_users():
+    return users
+
+def del_users(id):
+    
+     for i, u in enumerate(users):
+          if id == u["id"]:
+               del users[i]
+               return jsonify(users)
