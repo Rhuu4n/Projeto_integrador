@@ -8,6 +8,7 @@ app = Flask(__name__)
 app.route("/users", methods=["POST"])(set_users)
 app.route("/users", methods = ["GET"])(get_users)
 app.route("/users/<int:id>", methods = ["DELETE"])(del_users)
+@app.route('/players/<int:player_id>', methods=['GET'])(get_player)
 
 
 app.run(debug=True)
