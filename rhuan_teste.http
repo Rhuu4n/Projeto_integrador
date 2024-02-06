@@ -1,0 +1,31 @@
+### sdfisugoidfngsfgnfdgnhuodnhdgnhdgjnhlfgjnhlkfgjnh
+POST http://127.0.0.1:5000/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "id":12,
+    "usuario":"jorge3",
+    "senha":"1234567",
+    "e-mail":"rhuan123@rhuan123.com",
+    "nascimento":"28/03/2003"
+}
+
+### sdfisugoidfngsfgnfdgnhuodnhdgnhdgjnhlfgjnhlkfgjnh
+GET http://127.0.0.1:5000/users HTTP/1.1
+Content-Type: application/json
+
+### sdfisugoidfngsfgnfdgnhuodnhdgnhdgjnhlfgjnhlkfgjnh
+DELETE http://127.0.0.1:5000/users/2 HTTP/1.1
+Content-Type: application/json
+
+###
+PUT http://127.0.0.1:5000/users/2 HTTP/1.1
+Content-Type: application/json
+
+{
+    "id":9,
+    "usuario":"robsson",
+    "senha":"12345678",
+    "e-mail":"rhuan123@rhuan123.com",
+    "nascimento":"28/03/2003"
+}0
