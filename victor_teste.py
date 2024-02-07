@@ -12,18 +12,11 @@ def get_rooms_by_id(id):
         if id == room["id"]:
             return jsonify(rooms[i])
 
-
     return jsonify({"Erro":"Sala Nao Encontrada"}),404
+
+
+
 
 app.run(debug=True)
 
 
-@app.route('/delete_match/<int:room_id>', methods=['DELETE'])
-def delete_room (room_id):
-
-    for room in rooms:
-        if room['room_id'] == room_id:
-            rooms.remove(room)
-            return jsonify({'mensagem': 'sala deletada com sucesso'}), 200
-        
-    return({"error": "Partida Nao Encontrada"}), 404

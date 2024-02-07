@@ -68,19 +68,26 @@ def get_matches():
     return jsonify (matches)
 
 def put_matches(id):
-     Update_match = request.get_json()
+    Update_match = request.get_json()
 
-     for i, match in enumerate(matches):
+    for i, match in enumerate(matches):
         if id == match["matche_id"]:
              matches[i].update(Update_match)
              return jsonify(matches)
             
-        return jsonify({"erro":"partida nao encontrado"})
+    return jsonify({"Erro":"Partida Nao Encontrada"})
      
+def delete_matches(id):
+    for delete in matches:
+        if delete['id'] == id:
+            matches.remove(delete)
+            return jsonify({"Apagada": "Partida Deletada"}), 200
+
+    return jsonify({"Erro": "Partida Nao Encontrada"}), 404
+
 def get_matches_by_id(id):
     for i, match in enumerate (matches):
         if id == match["id"]:
             return jsonify(match[i])
- 
  
     return jsonify({"Erro":"Partida Nao Encontrada"}),404
