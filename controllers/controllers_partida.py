@@ -83,7 +83,7 @@ def delete_matches(id):
             matches.remove(delete)
             return jsonify({"Apagada": "Partida Deletada"}), 200
 
-    return jsonify({"erro": "Partida Nao Encontrada"}), 404
+    return jsonify({"Erro": "Partida Nao Encontrada"}), 404
 
 def get_matches_by_id(id):
     for i, match in enumerate (matches):
