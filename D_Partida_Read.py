@@ -21,7 +21,7 @@ matches = [
 app = Flask(__name__)
 
 @app.route("/matches")
-def get_matches():
+def get_matches_by_id():
     return jsonify (matches)
 
 app.run(debug=True)
