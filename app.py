@@ -20,8 +20,8 @@ app.route("/matches", methods=["GET"])(get_matches)
 app.route("/matches/<int:id>", methods=["PUT"])(get_matches)
 
 # Create, Read, Update Das informações da partida
-app.route('/create_room', methods=['POST'])(create_room) 
-app.route('/delete_room/<int:room_id>', methods=['DELETE'])(delete_room)
+app.route('/rooms/create_room', methods=['POST'])(create_room) 
+app.route('/rooms/delete_room/<int:room_id>', methods=['DELETE'])(delete_room)
 app.route("/rooms/<int:id>", methods = ["PUT"])(put_room)
 
 app.run(debug=True)
