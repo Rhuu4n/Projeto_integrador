@@ -33,3 +33,13 @@ def create_room():
     
 def get_rooms ():
     return (rooms)
+
+
+def delete_room (room_id):
+
+    for room in rooms:
+        if room['room_id'] == room_id:
+            rooms.remove(room)
+            return jsonify({'mensagem': 'sala deletada com sucesso'}), 200
+        
+    return({'error': 'Sala não encontrada'}), 404

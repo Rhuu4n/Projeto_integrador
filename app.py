@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from controllers.controllers_users import get_users, set_users, del_users
 from controllers.controllets_partida import set_matches, get_matches, put_matches
-from controllers_rooms.py import create_room, get_rooms
+from controllers_rooms.py import create_room, get_rooms, delete_room
 
 app = Flask(__name__)
 
@@ -18,5 +18,6 @@ app.route("/matches/<int:id>", methods=["PUT"])(get_matches)
 
 # Create, Read, Update Das informações da partida
 app.route('/create_room', methods=['POST'])(create_room) 
+app.route('/delete_room/<int:room_id>', methods=['DELETE'])(delete_room)
 
 app.run(debug=True)
