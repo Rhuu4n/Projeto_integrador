@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 
-from controllers.controllers_partida import set_matches, get_matches, put_matches, get_matches_by_id
+from controllers.controllers_matches import set_matches, get_matches, put_matches, get_matches_by_id, delete_matches
 from controllers.controller_rooms import create_room, get_rooms, delete_room, put_room
 
 app = Flask(__name__)
