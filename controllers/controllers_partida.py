@@ -77,6 +77,15 @@ def put_matches(id):
             
         return jsonify({"erro":"partida nao encontrado"})
      
+def delete(id):
+
+    for delete in matches:
+        if delete['id'] == matches['id']:
+            delete.remove(delete)
+            return jsonify({"Apagada":"Partida Deletada"}), 200
+        
+    return({"error": "Partida Nao Encontrada"}), 404
+
 def get_matches_by_id(id):
     for i, match in enumerate (matches):
         if id == match["id"]:
