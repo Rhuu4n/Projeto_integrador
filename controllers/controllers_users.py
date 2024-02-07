@@ -58,4 +58,4 @@ def put_user(id):
              users[i].update(update_user)
              return jsonify(user)
             
-        return jsonify({"erro":"user nao encontrado"})
+        return jsonify({"erro":"user nao encontrado"}), 404
