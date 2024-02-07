@@ -48,3 +48,10 @@ def put_room(id):
              return jsonify(room)
             
      return jsonify({"erro":"user nao encontrado"}), 404
+
+def get_rooms_by_id(id):
+    for i, room in enumerate (rooms):
+        if id == room["id"]:
+            return jsonify(rooms[i])
+ 
+    return jsonify({"Erro":"Sala Nao Encontrada"}),404
