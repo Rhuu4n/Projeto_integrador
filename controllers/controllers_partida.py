@@ -3,7 +3,7 @@ from flask import Flask, request, jsonify
 matches = [
     #turno pessoas moedas carta
     {
-        "matche_id" : 1,
+        "id" : 1,
         "room_id" : 1,
         "player" : 1,
         "player_1_id" : 1,
@@ -85,3 +85,11 @@ def delete(id):
             return jsonify({"Apagada":"Partida Deletada"}), 200
         
     return({"error": "Partida Nao Encontrada"}), 404
+
+def get_matches_by_id(id):
+    for i, match in enumerate (matches):
+        if id == match["id"]:
+            return jsonify(match[i])
+ 
+ 
+    return jsonify({"Erro":"Partida Nao Encontrada"}),404
