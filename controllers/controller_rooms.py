@@ -27,7 +27,7 @@ def create_room():
 
     
 def get_rooms():
-    return.jsonify (rooms)
+    return jsonify(rooms)
 
 
 def delete_room (room_id):
@@ -38,3 +38,13 @@ def delete_room (room_id):
             return jsonify({'mensagem': 'sala deletada com sucesso'}), 200
         
     return({'error': 'Sala não encontrada'}), 404
+
+def put_room(id):
+     update_room = request.get_json()
+
+     for i, room in enumerate(rooms):
+        if id == room["id"]:
+             rooms[i].update(update_room)
+             return jsonify(room)
+            
+     return jsonify({"erro":"user nao encontrado"}), 404
