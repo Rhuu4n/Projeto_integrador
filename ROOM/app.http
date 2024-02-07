@@ -1,0 +1,20 @@
+### Rota de POST
+POST http://127.0.0.1:5000/create_room HTTP/1.1
+Content-Type: application/json
+
+{
+    "room_id": 32,
+    "status_room": 0,
+    "player_1_id": 1,
+    "player_2_id": 2,
+    "player_3_id": 3,
+    "player_4_id": 4
+}
+
+### Rota DELETE
+DELETE http://127.0.0.1:5000/delete_room/32 HTTP/1.1
+Content-Type: application/json
+ 
+ 
+
+

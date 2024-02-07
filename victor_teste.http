@@ -1,0 +1,11 @@
+### READ SALA VICTOR
+GET http://127.0.0.1:5000/rooms HTTP/1.1
+Content-Type: application/json
+
+### READ INDIVIDUAL SALA VICTOR
+GET http://127.0.0.1:5000/rooms/555 HTTP/1.1
+Content-Type: application/json
+
+## DELETE PARTIDA VICTOR
+DELETE http://127.0.0.1:5000/127.0.0.1:5000/rooms/2 HTTP/1.1
+Content-Type: application/json

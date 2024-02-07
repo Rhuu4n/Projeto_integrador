@@ -42,3 +42,20 @@ def del_users(id):
           if id == u["id"]:
                del users[i]
                return jsonify(users)
+
+def get_user(user_id):
+    for user in users:
+        if user['id'] == user_id:
+            return jsonify(user)
+        
+    return jsonify({"error" : "Usuário não encontrado"}), 404
+
+def put_user(id):
+     update_user = request.get_json()
+
+     for i, user in enumerate(users):
+        if id == user["id"]:
+             users[i].update(update_user)
+             return jsonify(user)
+            
+        return jsonify({"erro":"user nao encontrado"})

@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify
-app = Flask(__name__)
 
 matches = [
     #turno pessoas moedas carta
@@ -27,23 +26,9 @@ users = [
           "e-mail":"rhuan123@rhuan123.com",
           "nascimento":"28/03/2003"
      },
-    {
+     {
           "id":2,
-          "usuario":"Rhuan",
-          "senha":"123",
-          "e-mail":"rhuan123@rhuan123.com",
-          "nascimento":"28/03/2003"
-     },
-    {
-          "id":3,
-          "usuario":"Rhuan",
-          "senha":"123",
-          "e-mail":"rhuan123@rhuan123.com",
-          "nascimento":"28/03/2003"
-     },
-    {
-          "id":4,
-          "usuario":"Rhuan",
+          "usuario":"Hugo",
           "senha":"123",
           "e-mail":"rhuan123@rhuan123.com",
           "nascimento":"28/03/2003"
@@ -54,9 +39,7 @@ id_content = {
     'last_matche_id' : 1
 }
 
-
-@app.route("/matches", methods=["POST"]) # rota post
-def set_students(): #function
+def set_matches(): #function
     
     new_matche = request.get_json() # objeto retorna enviado pelo http
     id_content['last_matche_id'] += 1
@@ -81,4 +64,15 @@ def set_students(): #function
     matches.append(new_matche)
     return jsonify(matches)
 
-app.run(debug=True) 
+def get_matches():
+    return jsonify (matches)
+
+def put_matches(id):
+     Update_match = request.get_json()
+
+     for i, match in enumerate(matches):
+        if id == match["matche_id"]:
+             matches[i].update(Update_match)
+             return jsonify(matches)
+            
+        return jsonify({"erro":"partida nao encontrado"})
