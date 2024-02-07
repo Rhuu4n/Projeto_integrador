@@ -32,6 +32,20 @@ users = [
           "senha":"123",
           "e-mail":"rhuan123@rhuan123.com",
           "nascimento":"28/03/2003"
+     },
+          {
+          "id":3,
+          "usuario":"Erick",
+          "senha":"123",
+          "e-mail":"rhuan123@rhuan123.com",
+          "nascimento":"28/03/2003"
+     },
+     {
+          "id":4,
+          "usuario":"Victor",
+          "senha":"123",
+          "e-mail":"rhuan123@rhuan123.com",
+          "nascimento":"28/03/2003"
      }
 ]
 
@@ -78,10 +92,10 @@ def put_matches(id):
     return jsonify({"Erro":"Partida Nao Encontrada"})
      
 def delete_matches(id):
-    for delete in matches:
+    for i, delete in enumerate (matches):
         if delete['id'] == id:
-            matches.remove(delete)
-            return jsonify({"Apagada": "Partida Deletada"}), 200
+            del matches[i]
+            return jsonify(matches), 200
 
     return jsonify({"Erro": "Partida Nao Encontrada"}), 404
 
