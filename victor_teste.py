@@ -12,10 +12,11 @@ def get_rooms_by_id(id):
         if id == room["id"]:
             return jsonify(rooms[i])
 
-
     return jsonify({"Erro":"Sala Nao Encontrada"}),404
+
+
+
 
 app.run(debug=True)
 
 
-@app.route('/delete/<int:id>', methods=['DELETE'])
