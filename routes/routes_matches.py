@@ -1,5 +1,5 @@
 from flask import Blueprint 
-from controllers.controllers_partida import set_matches, get_matches, put_matches, get_matches_by_id, delete_matches
+from controllers.controllers_matches import set_matches, get_matches, put_matches, get_matches_by_id, delete_matches
 
 bp_matches = Blueprint('bp_matches', __name__)
 

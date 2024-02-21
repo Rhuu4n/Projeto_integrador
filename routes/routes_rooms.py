@@ -1,2 +1,11 @@
+from flask import Blueprint
+from controllers.controller_rooms import create_room, get_rooms, delete_room, put_room, get_rooms_by_id
 
-from controllers.controllers_users import get_users, set_users, del_users, get_user, put_user
+bp_rooms = Blueprint('bp_rooms', __name__)
+
+bp_rooms.route('/create_room', methods=['POST'])(create_room)
+bp_rooms.route('/create_room', methods=['GET'])(get_rooms) 
+bp_rooms.route('/delete_room/<int:room_id>', methods=['DELETE'])(delete_room)
+bp_rooms.route('/rooms/<int:id>', methods=['PUT'])(put_room)
+bp_rooms.route('/rooms', methods=['GET'])(get_rooms) 
+bp_rooms.route('/rooms/<int:id>', methods=['GET'])(get_rooms_by_id)
