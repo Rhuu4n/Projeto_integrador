@@ -17,10 +17,8 @@ class User(db.Model):
             'senha':self.senha,
             'email':self.email,
             'nascimento':self.nascimento
-
         }
     
-
     @staticmethod
     def from_json(json_data):
         id = json_data.get('id'),

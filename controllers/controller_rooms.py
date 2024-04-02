@@ -32,12 +32,7 @@ def get_rooms():
 
 def delete_room (room_id):
 
-    for room in rooms:
-        if room['id'] == room_id:
-            rooms.remove(room)
-            return jsonify({'mensagem': 'sala deletada com sucesso'}), 200
-        
-    return({'error': 'Sala não encontrada'}), 404
+
 
 def put_room(id):
      update_room = request.get_json()
