@@ -16,8 +16,8 @@ rooms = [
 def create_room():
     new_room = request.get_json()
 
-    room = Salas.from_json(new_room)
-    db.session.add(room)
+    crt_room = Salas.from_json(new_room)
+    db.session.add(crt_room)
     db.session.commit()
         
     return jsonify(room.to_json()), 201    
@@ -27,7 +27,13 @@ def get_rooms():
 
 
 def delete_room (room_id):
+    
+    del_room = db.get_or_404(Salas, id)
+    db.session.delete(del_room)
 
+    db.session.commit()
+
+    return jsonify({"Excluido":"Evento foi deletado com sucesso"}), 200
 
 
 def put_room(id):
