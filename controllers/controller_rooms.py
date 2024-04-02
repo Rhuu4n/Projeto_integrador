@@ -1,4 +1,6 @@
 from flask import Flask, request, jsonify
+from models.models_rooms import Salas
+from app import db
 
 rooms = [
     {
@@ -13,18 +15,12 @@ rooms = [
 
 def create_room():
     new_room = request.get_json()
-    room_id = new_room['id']
 
-
-    for room in rooms:
-        if room['id'] == room_id:
-            return jsonify({'erro': 'Essa sala já existe'}), 400 
+    room = Salas.from_json(new_room)
+    db.session.add(room)
+    db.session.commit()
         
-
-    rooms.append(new_room)
-    return jsonify({'mensagem': 'Sala criada com sucesso'}), 201       
-
-
+    return jsonify(room.to_json()), 201    
     
 def get_rooms():
     return jsonify(rooms)
