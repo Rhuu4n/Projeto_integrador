@@ -5,7 +5,7 @@ from app import db
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(255), nullable=False)
-    senha = db.Column(db.Integer(255), nullable=False)
+    senha = db.Column(db.Integer, nullable=False)
     email = db.Column(db.String(1024), nullable=False)
     nascimento = db.Column(db.Date, nullable=False)
 
