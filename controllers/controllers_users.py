@@ -1,61 +1,44 @@
 from flask import Flask, request, jsonify
-
-users = [
-     {
-          "id":1,
-          "usuario":"Rhuan",
-          "senha":"123",
-          "e-mail":"rhuan123@rhuan123.com",
-          "nascimento":"28/03/2003"
-     },
-     {
-          "id":2,
-          "usuario":"Hugo",
-          "senha":"123",
-          "e-mail":"rhuan123@rhuan123.com",
-          "nascimento":"28/03/2003"
-     }
-]
+from models.models_users import User
+from app import db
 
 def set_users():
-    New_user = request.get_json()
+    new_user = request.get_json()
 
-    for u in users:
-        if New_user["id"] == u["id"]:
-            return jsonify({"erro:":"id ja existente"}), 409
-         
-        if New_user["usuario"] == u["usuario"] or New_user["usuario"] == "":
-            return jsonify({"erro:":"usuario ja existente ou vazio"}), 409
-        
-    if len(New_user["senha"]) >= 9:
-        return jsonify({"erro":"senha longa demais"})
-        
-    users.append(New_user)
-    return jsonify(users)
+    o_user = User.from_json(new_user)
+    db.session.add(o_user)
+    db.session.commit()
+
+    return jsonify(o_user.to_json())
 
 def get_users():
-    return users
+    Users = User.query.all()
+    return jsonify ([user.to_json() for user in Users])
 
 def del_users(id):
-    
-     for i, u in enumerate(users):
-          if id == u["id"]:
-               del users[i]
-               return jsonify(users)
+    d_user = db.get_or_404(User, id)
+    db.session.delete(d_user)
+    db.session.commit()
+
+    return jsonify(d_user.to_json())
 
 def get_user(user_id):
-    for user in users:
-        if user['id'] == user_id:
-            return jsonify(user)
+##    for user in users:
+##        if user['id'] == user_id:
+##            return jsonify(user)
         
     return jsonify({"error" : "Usuário não encontrado"}), 404
 
 def put_user(id):
-     update_user = request.get_json()
+    newput_user = request.get_json()
+    p_user = db.get_or_404(User, id)
 
-     for i, user in enumerate(users):
-        if id == user["id"]:
-             users[i].update(update_user)
-             return jsonify(user)
-            
-        return jsonify({"erro":"user nao encontrado"}), 404
+    p_user.nome = newput_user.get('nome')
+    p_user.senha = newput_user.get("senha")
+    p_user.email = newput_user.get("email")
+    p_user.nascimento = newput_user.get("nascimento")
+
+
+    db.session.commit()
+
+    return jsonify(p_user.to_json()), 201
