@@ -6,6 +6,8 @@ from flask_migrate import Migrate
 db = SQLAlchemy()
 migrate = Migrate()
 
+# erick
+
 def create_app():
     from routes.routes_users import bp_users
     from routes.routes_matches import bp_matches
