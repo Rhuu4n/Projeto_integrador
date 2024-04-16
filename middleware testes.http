@@ -1,0 +1,26 @@
+## 
+POST http://127.0.0.1:5000/users HTTP/1.1
+Content-Type: application/json
+token : guilty123@@
+{
+    "nome" : "Hugo",
+    "senha" : "hugo123",
+    "email" : "hugo@gmail.com",
+    "nascimente": "2004-05-03"
+}
+
+
+###                                                                                                                        
+GET http://127.0.0.1:5000/users HTTP/1.1
+Content-Type: application/json
+
+
+
+DELETE http://127.0.0.1:5000/users/2 HTTP/1.1
+Content-Type: application/json
+
+
+
+PUT http://127.0.0.1:5000/users/1 HTTP/1.1
+Content-Type: application/json
+
