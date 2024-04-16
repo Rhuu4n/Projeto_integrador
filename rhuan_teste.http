@@ -3,6 +3,13 @@ POST http://127.0.0.1:5000/matches HTTP/1.1
 Content-Type: application/json
 
 {
+<<<<<<< HEAD
+    "id":1,
+    "nome":"jorge3",
+    "senha":"1234567",
+    "email":"rhuan123@rhuan123.com",
+    "nascimento":"2003-09-07"
+=======
     "Jogador_ID" : 1,
     "id_sala" : 1,
     "Ordem" : 1,
@@ -12,10 +19,15 @@ Content-Type: application/json
     "Acao" : 1,
     "Afetado" : 1,
     "id_partida" : 1000
+>>>>>>> origin/main
 }
 
 ### sdfisugoidfngsfgnfdgnhuodnhdgnhdgjnhlfgjnhlkfgjnh                                                                                                                         
 GET http://127.0.0.1:5000/users HTTP/1.1
+Content-Type: application/json
+
+### sdfisugoidfngsfgnfdgnhuodnhdgnhdgjnhlfgjnhlkfgjnh                                                                                                                         
+GET http://127.0.0.1:5000/users/1 HTTP/1.1
 Content-Type: application/json
 
 ### sdfisugoidfngsfgnfdgnhuodnhdgnhdgjnhlfgjnhlkfgjnh
