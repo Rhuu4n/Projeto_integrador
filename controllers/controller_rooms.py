@@ -40,8 +40,6 @@ def put_room(id):
     return jsonify(p_room.to_json()), 201
 
 def get_rooms_by_id(id):
-    for i, room in enumerate (rooms):
-        if id == room["id"]:
-            return jsonify(rooms[i])
- 
-    return jsonify({"Erro":"Sala Nao Encontrada"}),404
+    room = Salas.query.filter(Salas.id_sala == id).first()
+        
+    return jsonify(room.to_json())

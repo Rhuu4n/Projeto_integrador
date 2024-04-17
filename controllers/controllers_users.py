@@ -23,11 +23,9 @@ def del_users(id):
     return jsonify(d_user.to_json())
 
 def get_user(user_id):
-##    for user in users:
-##        if user['id'] == user_id:
-##            return jsonify(user)
+    user = User.query.filter(User.id == user_id).first()
         
-    return jsonify({"error" : "Usuário não encontrado"}), 404
+    return jsonify(user.to_json())
 
 def put_user(id):
     newput_user = request.get_json()
