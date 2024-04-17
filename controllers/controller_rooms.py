@@ -40,8 +40,5 @@ def put_room(id):
     return jsonify(p_room.to_json()), 201
 
 def get_rooms_by_id(id):
-    for i, room in enumerate (rooms):
-        if id == room["id"]:
-            return jsonify(rooms[i])
- 
-    return jsonify({"Erro":"Sala Nao Encontrada"}),404
+    p_room = db.get_or_404(Salas, id)
+    return jsonify(p_room.to_json()), 201
