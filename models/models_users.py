@@ -31,12 +31,14 @@ class User(db.Model):
 
 class Token(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     token = db.Column(db.String(500), nullable = False)
     expiration_at = db.Column(db.DateTime, nullable=False)
 
     def to_json(self):
         return{
             'id':self.id,
+            'user_id':self.user_id,
             'token':self.token,
             'expiration_at':self.expiration_at
         }
@@ -44,8 +46,9 @@ class Token(db.Model):
     @staticmethod
     def from_json(json_data):
         id = json_data.get('id'),
+        user_id = json_data.get('user_id')
         token = json_data.get('token'),
         expiration_at = json_data.get('expiration_at')
-        return Token(id=id, token=token, expiration_at=expiration_at)
+        return Token(id=id, user_id=user_id, token=token, expiration_at=expiration_at)
 
 

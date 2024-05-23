@@ -1,4 +1,4 @@
-from flask import Blueprint 
+from flask import Blueprint, current_app
 from controllers.controllers_users import get_users, set_users, del_users, get_user, put_user, login_user
 
 bp_users = Blueprint('bp_users', __name__)
