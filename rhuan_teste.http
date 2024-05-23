@@ -1,5 +1,5 @@
 ### sdfisugoidfngsfgnfdgnhuodnhdgnhdgjnhlfgjnhlkfgjnh
-POST http://127.0.0.1:5000/matches HTTP/1.1
+POST http://10.60.46.21:5000/users HTTP/1.1
 Content-Type: application/json
 token : Guilty123@@
 
@@ -12,11 +12,7 @@ token : Guilty123@@
     "Carta_2" : 1,
     "Acao" : 1,
     "Afetado" : 1,
-    "id_partida" : 1000
-}
-
-### mae do hugo
-POST http://127.0.0### sdfisugoidfngsfgnfdgnhuodnhdgnhdgjnhlfgjnhlkfgjnh
+    "id_partida" : 1000POST http://127.0.0### sdfisugoidfngsfgnfdgnhuodnhdgnhdgjnhlfgjnhlkfgjnh
 POST http://127.0.0.1:5000/matches HTTP/1.1
 Content-Type: application/json
 
