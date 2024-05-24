@@ -23,7 +23,7 @@ def create_app():
     app.wsgi_app = MiddlewareManager(app)
     
 
-    secured_routers = ["/users","/login,","/admin"]
+    secured_routers = ["/users"]
     
     app.wsgi_app.add_middleware(MetricsMinddleware, secured_routers=secured_routers)
 

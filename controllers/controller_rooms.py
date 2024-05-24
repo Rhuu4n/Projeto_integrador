@@ -40,6 +40,5 @@ def put_room(id):
     return jsonify(p_room.to_json()), 201
 
 def get_rooms_by_id(id):
-    room = Salas.query.filter(Salas.id_sala == id).first()
-        
-    return jsonify(room.to_json())
+    p_room = db.get_or_404(Salas, id)
+    return jsonify(p_room.to_json()), 201

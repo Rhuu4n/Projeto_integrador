@@ -1,4 +1,6 @@
 from flask import Flask, request, jsonify
+from models.models_matches import Matches
+from app import db
 
 matches = [
    
@@ -16,30 +18,48 @@ matches = [
 ]
 
 def set_matches(): #function
+
+    new_match = request.get_json()
+    match = Matches.from_json(new_match)
+    db.session.add(match)
+    db.session.commit()
     
-
-    return jsonify(matches)
-
-
+    return jsonify(match.to_json()), 201
 
 def get_matches():
-    return jsonify (matches)
+    matches = Matches.query.all()
+    return jsonify ([match.to_json() for match in matches])
 
 
 
 def put_matches(id):
-     
-    return jsonify({"Erro":"Partida Nao Encontrada"})
+
+    put_match = request.get_json()
+    a_match = db.get_or_404(Matches, id)
+    a_match.Ordem = put_match.get('Ordem')
+    a_match.Carta_1 = put_match.get('Carta_1')
+    a_match.Carta_2 = put_match.get('Carta_2')
+    a_match.Acao = put_match.get('Acao')
+    a_match.Afetado = put_match.get('Afetado')
+
+    db.session.commit()
+
+    return jsonify(a_match.to_json()), 201
 
 
      
 def delete_matches(id):
 
-    return jsonify({"Erro": "Partida Nao Encontrada"}), 404
+    a_match = db.get_or_404(Matches, id)
+    db.session.delete(a_match)
+    db.session.commit()
+
+    return jsonify(a_match.to_json())
 
 
 
 def get_matches_by_id(id):
+    
 
     return jsonify({"Erro":"Partida Nao Encontrada"}),404
 
