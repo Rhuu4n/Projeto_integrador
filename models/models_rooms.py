@@ -1,7 +1,7 @@
 from app import db
 
 class Salas(db.Model):
-    id_sala = db.Column(db.Integer , primary_key=True)
+    id_sala = db.Column(db.Integer , primary_key=True, autoincrement=True)
     jogadorAtual = db.Column(db.String(255), nullable=False)
     estadoSala = db.Column(db.String(1024))
     numeroJogadores = db.Column(db.Integer)
