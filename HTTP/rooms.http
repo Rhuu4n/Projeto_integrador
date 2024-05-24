@@ -1,10 +1,10 @@
 ### Post Room
-POST http://127.0.0.1:5000/room HTTP/1.1
+POST http://127.0.0.1:5000/rooms HTTP/1.1
 Content-Type: application/json
 Token: Guilty123@@
 
 {
-    "id_sala":1,
+    "id_sala":1000000,
     "jogadorAtual":1,
     "estadoSala":1,
     "numeroJogadores":4
