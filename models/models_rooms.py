@@ -20,4 +20,4 @@ class Salas(db.Model):
         jogadorAtual = json_data.get('jogadorAtual'),
         estadoSala = json_data.get('estadoSala'),
         numeroJogadores = json_data.get('numeroJogadores')
-        return Salas(id_sala=id_sala, jogadorAtual=jogadorAtual, estadoSala=estadoSala, numeroJogadores=numeroJogadores)
+        return Salas(jogadorAtual=jogadorAtual, estadoSala=estadoSala, numeroJogadores=numeroJogadores)

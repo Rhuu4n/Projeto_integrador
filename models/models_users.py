@@ -21,12 +21,11 @@ class User(db.Model):
     
     @staticmethod
     def from_json(json_data):
-        id = json_data.get('id'),
         nome = json_data.get('nome'),
         senha = json_data.get('senha'),
         email = json_data.get('email'),
         nascimento = json_data.get('nascimento')
-        return User(id=id, nome=nome, senha=senha, email=email, nascimento=nascimento)
+        return User(nome=nome, senha=senha, email=email, nascimento=nascimento)
 
 
 class Token(db.Model):

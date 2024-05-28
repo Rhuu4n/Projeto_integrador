@@ -6,7 +6,7 @@ from datetime import date
 from datetime import datetime
 from datetime import timedelta
 from models.models_users import Token
-
+import re
 import time
 
 def set_users():
@@ -79,6 +79,14 @@ def cria_token(Senha, id):
     token_a = Senha + ts
     expiration = datetime.now() + timedelta(hours=3)
     token = bcrypt.generate_password_hash(token_a)
+
+
+    token = token.decode('utf-8') 
+
+    token = re.sub(r"^b'|'$", "", token)
+
+    print(token)
+
     o_token = Token.from_json({
         'user_id': id,
         'token':token,
