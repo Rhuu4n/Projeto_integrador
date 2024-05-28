@@ -38,4 +38,4 @@ class Matches(db.Model):
             Acao = json_data.get('Acao')
             Afetado = json_data.get('Afetado')
             # id_partida = json_data.get('id_partida')
-            return Matches(Jogador_ID=Jogador_ID, id_sala=id_sala, Ordem=Ordem, Carta_1=Carta_1, Carta_2=Carta_2, Acao=Acao, Afetado=Afetado)
+            return Matches(Jogador_ID=Jogador_ID, id_sala=id_sala, Ordem=Ordem, Moedas=Moedas, Carta_1=Carta_1, Carta_2=Carta_2, Acao=Acao, Afetado=Afetado)
