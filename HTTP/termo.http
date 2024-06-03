@@ -12,7 +12,7 @@ Token:$2b$12$mS/pXfhWElRf0ZUzw000yebQSj.pAvez18W.VB6rIBLU5vXS9cTJO
 GET http://127.0.0.1:5000/termo HTTP/1.1
 Content-Type: application/json
 
-### Get termo by ID                                                                                                                         
+### Get termo by ID 
 GET http://127.0.0.1:5000/termo/1 HTTP/1.1
 Content-Type: application/json
 
