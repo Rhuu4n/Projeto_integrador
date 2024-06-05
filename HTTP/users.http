@@ -4,10 +4,10 @@ Content-Type: application/json
 Token:$2b$12$mS/pXfhWElRf0ZUzw000yebQSj.pAvez18W.VB6rIBLU5vXS9cTJO
 
 {
-    "nome":"erick",
-    "senha":"1234567",
-    "email":"rhuan123@rhuan123.com",
-    "nascimento":"2003-04-09"
+    "nome":"marcius",
+    "senha":"123",
+    "email":"marcius@marcius.com",
+    "nascimento":"1990-01-03"
 }
 
 ### Get Users                                                                                                                         
