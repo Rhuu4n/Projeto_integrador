@@ -4,7 +4,7 @@ Content-Type: application/json
 Token:$2b$12$mS/pXfhWElRf0ZUzw000yebQSj.pAvez18W.VB6rIBLU5vXS9cTJO
 
 {
-    "nome":"erick 4",
+    "nome":"jorge",
     "senha":"1234567",
     "email":"rhuan123@rhuan123.com",
     "nascimento":"2003-04-09"
@@ -13,6 +13,7 @@ Token:$2b$12$mS/pXfhWElRf0ZUzw000yebQSj.pAvez18W.VB6rIBLU5vXS9cTJO
 ### Get Users
 GET http://127.0.0.1:5000/users HTTP/1.1
 Content-Type: application/json
+token: $2b$12$iuEVW4Cqvj1LuuTFsNSSL..ZXUOKrZxTuuXp.JT7OIJb2utQ/7dGu
 
 ### Get Users
 OPTIONS  http://127.0.0.1:5000/users HTTP/1.1
@@ -46,6 +47,11 @@ POST http://127.0.0.1:5000/login HTTP/1.1
 Content-Type: application/json
 
  { 
-    "nome": "erick",
+    "nome": "jorge",
     "senha": "1234567"
 }
+
+### Get Users
+GET http://127.0.0.1:5000/token HTTP/1.1
+Content-Type: application/json
+token: $2b$12$iuEVW4Cqvj1LuuTFsNSSL..ZXUOKrZxTuuXp.JT7OIJb2utQ/7dGu

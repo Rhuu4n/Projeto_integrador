@@ -20,6 +20,8 @@ class MetricsMinddleware(BaseHTTPMiddleware):
             if(token_ex == None):
                 response = make_response(jsonify({"error": "Usuario nao autenticado"}), 401)
                 return response
+            else: 
+                return call_next(request)
         else:
             return call_next(request)
     
