@@ -12,7 +12,7 @@ Token: $2b$12$UUHV3tb4EwJSDcapdpu9heL2xCOzbq6oI1kv733vrqWXc3FlF48uu
 ### Get room                                                                                                                   
 GET http://127.0.0.1:5000/rooms HTTP/1.1
 Content-Type: application/json
-Token: $2b$12$UUHV3tb4EwJSDcapdpu9heL2xCOzbq6oI1kv733vrqWXc3FlF48uu
+Token: $2b$12$WxEhJqWvALK/q17yNpjP7.2utG5wimQY7DdMT7LQT4f1.q8JEx1Le
 
 ### Get Room by ID                                                                                                                      
 GET http://127.0.0.1:5000/rooms/9634 HTTP/1.1

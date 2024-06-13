@@ -59,8 +59,14 @@ def delete_matches(id):
 
 
 def get_matches_by_id(id):
-    
+    matches = db.session.query(Matches).filter_by(id_partida = id).first()
+    if matches is None:
+        return jsonify({'error': 'Partida não encontrada'}), 404
+    return jsonify(matches.to_json()), 200
 
-    return jsonify({"Erro":"Partida Nao Encontrada"}),404
-
-
+def get_matches_by_room_id():
+    room_id = request.args.get('room')
+    matches = db.session.query(Matches).filter_by(id_sala = room_id).order_by(Matches.Ordem).all()
+    if matches is None:
+        return jsonify({'error': 'Partida não encontrada'}), 404
+    return jsonify ([match.to_json() for match in matches]), 200

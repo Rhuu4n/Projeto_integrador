@@ -1,5 +1,5 @@
 from flask import Blueprint 
-from controllers.controllers_matches import set_matches, get_matches, put_matches, get_matches_by_id, delete_matches
+from controllers.controllers_matches import set_matches, get_matches, put_matches, get_matches_by_id, delete_matches, get_matches_by_room_id
 
 bp_matches = Blueprint('bp_matches', __name__)
 
@@ -26,3 +26,4 @@ bp_matches.route("/matches", methods=["GET"])(get_matches)
 bp_matches.route("/matches/<int:id>", methods=["PUT"])(put_matches)
 bp_matches.route("/matches/<int:id>", methods=["DELETE"])(delete_matches)
 bp_matches.route("/matches/<int:id>", methods=["GET"])(get_matches_by_id)
+bp_matches.route("/matches/room", methods=["GET"])(get_matches_by_room_id)
