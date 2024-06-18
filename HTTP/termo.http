@@ -4,8 +4,8 @@ Content-Type: application/json
 Token:$2b$12$mS/pXfhWElRf0ZUzw000yebQSj.pAvez18W.VB6rIBLU5vXS9cTJO
 
 {
-    "id": 1,
-    "palavra":"CINCO"
+    "id": 6,
+    "palavra":"GORDO"
 }
 
 ### Get termo                                                                                                                         
@@ -17,7 +17,7 @@ GET http://127.0.0.1:5000/termo/1 HTTP/1.1
 Content-Type: application/json
 
 ### Delete termo
-DELETE http://127.0.0.1:5000/termo/1 HTTP/1.1
+DELETE http://127.0.0.1:5000/termo/4 HTTP/1.1
 Content-Type: application/json
 
 ### Update termo
