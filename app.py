@@ -34,7 +34,7 @@ def create_app():
     app.wsgi_app.add_middleware(MetricsMinddleware, secured_routers=secured_routers)
 
 
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://projeto:Ubuntu12!@localhost/Projeto'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://ubuntu:ubuntu12@localhost/projeto'
 
     db.init_app(app)
     migrate.init_app(app, db)

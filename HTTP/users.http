@@ -1,10 +1,9 @@
 ### Post Users
 POST http://127.0.0.1:5000/cadastro HTTP/1.1
 Content-Type: application/json
-Token:$2b$12$mS/pXfhWElRf0ZUzw000yebQSj.pAvez18W.VB6rIBLU5vXS9cTJO
 
 {
-    "nome":"jorge",
+    "nome":"rhuan",
     "senha":"1234567",
     "email":"rhuan123@rhuan123.com",
     "nascimento":"2003-04-09"
@@ -13,7 +12,7 @@ Token:$2b$12$mS/pXfhWElRf0ZUzw000yebQSj.pAvez18W.VB6rIBLU5vXS9cTJO
 ### Get Users
 GET http://127.0.0.1:5000/users HTTP/1.1
 Content-Type: application/json
-token: $2b$12$WxEhJqWvALK/q17yNpjP7.2utG5wimQY7DdMT7LQT4f1.q8JEx1Le
+token: $2b$12$Tf1jjFSnv8sYW2Py.0iolO6k.RP5Pc4kAnLBYsP1cU7iwIXcKrKqq
 
 ### Get Users
 OPTIONS  http://127.0.0.1:5000/users HTTP/1.1
