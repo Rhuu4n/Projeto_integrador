@@ -25,20 +25,25 @@ def delete_room (room_id):
     return jsonify({"Excluido":"Evento foi deletado com sucesso"}), 200
 
 
-def put_room(id):
 
+def put_room(id):
     put_room = request.get_json()
 
     p_room = db.get_or_404(Salas, id)
 
-    p_room.jogadorAtual = put_room.get("jogadorAtual")
-    p_room.estadoSala = put_room.get("estadoSala")
-    p_room.numeroJogadores = put_room.get("numeroJogadores")
-    
+    if "jogadorAtual" in put_room:
+        p_room.jogadorAtual = put_room.get("jogadorAtual")
+    if "estadoSala" in put_room:
+        p_room.estadoSala = put_room.get("estadoSala")
+    if "numeroJogadores" in put_room:
+        p_room.numeroJogadores = put_room.get("numeroJogadores")
+
     db.session.commit()
 
     return jsonify(p_room.to_json()), 201
 
 def get_rooms_by_id(id):
-    p_room = db.get_or_404(Salas, id)
-    return jsonify(p_room.to_json()), 201
+    p_room = db.session.query(Salas).filter_by(id_sala=id).first()
+    if p_room is None:
+        return jsonify({'error': 'Sala não encontrada'}), 404
+    return jsonify(p_room.to_json()), 200

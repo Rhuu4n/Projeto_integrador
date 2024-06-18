@@ -97,3 +97,11 @@ def cria_token(Senha, id):
     db.session.commit()
 
     return token
+
+def get_token():
+    token_ex = Token.query.filter_by(token = request.headers.get("token")).first()
+    user_id = token_ex.user_id
+
+    user = User.query.filter(User.id == user_id).first()
+        
+    return jsonify(user.to_json())
