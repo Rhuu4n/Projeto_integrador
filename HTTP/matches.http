@@ -27,9 +27,9 @@ Content-Type: application/json
 token: $2b$12$WxEhJqWvALK/q17yNpjP7.2utG5wimQY7DdMT7LQT4f1.q8JEx1Le
 
 ### Get Matches by ID
-GET http://127.0.0.1:5000/matches/room?room=59 HTTP/1.1
+GET http://127.0.0.1:5000/matches/room?room=175 HTTP/1.1
 Content-Type: application/json
-token: $2b$12$WxEhJqWvALK/q17yNpjP7.2utG5wimQY7DdMT7LQT4f1.q8JEx1Le
+token: $2b$12$K0cyLCMPjfCQ24XsUKGAR.4r/kCfRRUPdoIiqUuGuu.0MilG3KZmO
 
 ### Delete Matches
 DELETE http://127.0.0.1:5000/matches/2 HTTP/1.1

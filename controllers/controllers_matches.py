@@ -33,19 +33,26 @@ def get_matches():
 
 
 def put_matches(id):
-
     put_match = request.get_json()
+
     a_match = db.get_or_404(Matches, id)
-    a_match.Ordem = put_match.get('Ordem')
-    a_match.Carta_1 = put_match.get('Carta_1')
-    a_match.Carta_2 = put_match.get('Carta_2')
-    a_match.Acao = put_match.get('Acao')
-    a_match.Afetado = put_match.get('Afetado')
+
+    if 'Ordem' in put_match:
+        a_match.Ordem = put_match.get('Ordem')
+    if 'Carta_1' in put_match:
+        a_match.Carta_1 = put_match.get('Carta_1')
+    if 'Carta_2' in put_match:
+        a_match.Carta_2 = put_match.get('Carta_2')
+    if 'Acao' in put_match:
+        a_match.Acao = put_match.get('Acao')
+    if 'Afetado' in put_match:
+        a_match.Afetado = put_match.get('Afetado')
+    if 'Moedas' in put_match:
+        a_match.Moedas += put_match.get('Moedas')
 
     db.session.commit()
 
     return jsonify(a_match.to_json()), 201
-
 
      
 def delete_matches(id):
