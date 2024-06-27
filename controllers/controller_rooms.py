@@ -18,11 +18,11 @@ def get_rooms():
 
 def delete_room (room_id):
     
-    del_room = db.get_or_404(Salas, id)
+    del_room = db.get_or_404(Salas, room_id)
     db.session.delete(del_room)
     db.session.commit()
 
-    return jsonify({"Excluido":"Evento foi deletado com sucesso"}), 200
+    return jsonify({"Excluido" : "Sala excluida com sucesso"}), 200
 
 
 
