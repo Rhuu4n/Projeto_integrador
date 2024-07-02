@@ -1,13 +1,12 @@
 from app import db
 
-from app import db
-
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     nome = db.Column(db.String(255), nullable=False)
     senha = db.Column(db.String(500), nullable = False)
     email = db.Column(db.String(1024), nullable=False)
     nascimento = db.Column(db.Date, nullable=False)
+    delete_at = db.Column(db.Date, nullable=True)
 
 ### Toda função dentro de classe recebe "SELF"
     def to_json(self):
@@ -15,7 +14,8 @@ class User(db.Model):
             'id':self.id,
             'nome':self.nome,
             'email':self.email,
-            'nascimento':self.nascimento
+            'nascimento':self.nascimento,
+            'delete_at': self.delete_at
         }
     
     @staticmethod
@@ -24,7 +24,8 @@ class User(db.Model):
         senha = json_data.get('senha'),
         email = json_data.get('email'),
         nascimento = json_data.get('nascimento')
-        return User(nome=nome, senha=senha, email=email, nascimento=nascimento)
+        delete_at = json_data.get('delete_at')
+        return User(nome=nome, senha=senha, email=email, nascimento=nascimento, delete_at=delete_at)
 
 
 class Token(db.Model):

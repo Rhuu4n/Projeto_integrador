@@ -13,7 +13,8 @@ def set_users():
     new_user = request.get_json()
 
     o_user = User.from_json(new_user)
-    o_user.senha = bcrypt.generate_password_hash(new_user.get("senha"))
+    #o_user.senha = bcrypt.generate_password_hash(new_user.get("senha"))
+    o_user.senha = new_user.get("senha")
     db.session.add(o_user)
     db.session.commit()
 
@@ -58,7 +59,8 @@ def login_user():
 
     ouser = User.query.filter_by(nome=Login).first_or_404(description="Usuario não encontrado")
     id = ouser.id
-    if (bcrypt.check_password_hash(ouser.senha, Senha)):
+    #if (bcrypt.check_password_hash(ouser.senha, Senha)):
+    if (ouser.senha == Senha):
         #try:
         #token_verifica = db.get_or_404(Token, id)
         #                
